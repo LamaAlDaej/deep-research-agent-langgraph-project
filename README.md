@@ -15,13 +15,11 @@ I extended the original three-agent pipeline into a **six-agent deep research sy
 4. **Research Analyst** — combines and compares both sets of findings.
 5. **Quality Checker** — decides whether the evidence is sufficient or more research is needed.
 6. **Report Writer** — produces the final evidence-based report.
-
-The demonstration investigates whether Saudi universities should introduce an AI academic-advising assistant. It uses public information only and does not access real student data.
+   
 
 ### Why This Design?
 
 The two researchers work **in parallel** to reduce execution time and provide balanced perspectives. The Quality Checker reviews the evidence before writing. If important information is missing, the workflow returns to the Planner for a targeted research round.
-
 The workflow also includes bounded revisions, source checks, tool and model-call limits, loop detection, tracing, and in-memory checkpointing for improved reliability.
 
 **Workflow:** Planner → Parallel Opportunity and Risk Research → Analyst → Quality Checker → Report Writer or Targeted Research Retry
