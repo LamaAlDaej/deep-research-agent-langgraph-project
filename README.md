@@ -5,6 +5,28 @@ the three agents with LangChain 1.x `create_agent` and chain them with
 LangGraph's Graph API (`StateGraph`). Finish three TODOs — write the system
 prompts (TODO #1), build the agents (TODO #2), build the pipeline (TODO #3).
 
+## My Project: Multi-Agent Deep Research System
+
+I extended the original three-agent pipeline into a **six-agent deep research system**:
+
+1. **Research Planner** — breaks the main question into focused research tasks.
+2. **Opportunity Researcher** — searches for benefits, successful examples, and supporting evidence.
+3. **Risk Researcher** — searches for risks, limitations, and counter-evidence.
+4. **Research Analyst** — combines and compares both sets of findings.
+5. **Quality Checker** — decides whether the evidence is sufficient or more research is needed.
+6. **Report Writer** — produces the final evidence-based report.
+
+The demonstration investigates whether Saudi universities should introduce an AI academic-advising assistant. It uses public information only and does not access real student data.
+
+### Why This Design?
+
+The two researchers work **in parallel** to reduce execution time and provide balanced perspectives. The Quality Checker reviews the evidence before writing. If important information is missing, the workflow returns to the Planner for a targeted research round.
+
+The workflow also includes bounded revisions, source checks, tool and model-call limits, loop detection, tracing, and in-memory checkpointing for improved reliability.
+
+**Workflow:** Planner → Parallel Opportunity and Risk Research → Analyst → Quality Checker → Report Writer or Targeted Research Retry
+
+
 ## Google Colab (easiest)
 
 1. Open `research_agent.ipynb` in Colab.
